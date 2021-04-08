@@ -1,0 +1,25 @@
+// Chapitre 1 - Page 4
+$color-primary: #5190ee;
+$padding: 10px;
+$mobile-break: 768px;
+$mobile-break: 900px !default; // Prend la valeur 768px sauf si une variable du même nom existe déjà
+$mobile: "only screen and (max-width: #{ $mobile-break })";
+
+.button-var {
+    background-color: $color-primary;
+    padding: $padding + 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($color-primary, 20);
+        // background-color: lighten($color-primary, 20);
+        // background-color: rgba($color-primary, .5);
+    }
+    
+    @media #{ $mobile } {
+        width: 100%;
+    }
+}

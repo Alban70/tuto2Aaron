@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH1 p1 > tuto-scss</title>
+    <link rel="stylesheet" href="../assets/css/app.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+</head>
+<body>
+    <div class="tuto-container">
+        <div>
+            <ul class="tuto-pagination">
+                <a href="/"><li>Accueil</li></a>
+                <a href="/chapter-1/index-chapter-1.html"><li>Chapitre 1</li></a>
+            </ul>
+            <h1>Présentation SASS</h1>
+            <div>
+                SASS est un pré-processeur qui intègre tout un tas de fonctionnalités qui vont permettrent d'écrire du CSS de manière plus organisée et plus propre.
+            </div>
+            <div>
+                <h2>Sommaire</h2>
+                <ul>
+                    <li><a href="./chapter-1-1.html">Séparer en plusieurs feuilles de styles</a></li>
+                    <li><a href="./chapter-1-2.html">Imbrication des propriétés: Nested Rules</a></li>
+                    <li><a href="./chapter-1-3.html">Héritage</a></li>
+                    <li><a href="./chapter-1-4.html">Les Variables</a></li>
+                    <li><a href="./chapter-1-exo.html">Exercice</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h2>Séparer en plusieurs feuilles de styles</h2>
+            <div>
+                <h3>SCSS</h3>
+                <pre>
+                    <code>
+                        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+                        @import './partials/tuto'; // Uniquement pour la mise en page du tuto
+                        
+                        html {
+                            font-family: 'Nunito', sans-serif;
+                            background-color: rgb(250, 250, 250);
+                        }
+                        
+                        body {
+                            margin-bottom: 3rem;
+                        }
+                        
+                        @import './chapters/ch1-p1';
+                        @import './chapters/ch1-p2';
+                        @import './chapters/ch1-p3';
+                        @import './chapters/ch1-p4';
+                    </code>
+                </pre>
+
+                <div>
+                    La directive <code>@import</code> permet de séparer vos feuilles de style de manière propre et de toutes les réunir en un seul fichier lors de la compilation. Ainsi, vous pouvez séparer les classes pour chaque style que vous développez: <code>header</code> ou <code>footer</code> par exemple. Il est également possible d'importer directement depuis une <code>url()</code> comme dans notre exemple depuis l'API Google Font.
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/app.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

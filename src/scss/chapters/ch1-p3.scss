@@ -1,0 +1,30 @@
+// Chapitre 1 - Page 3
+.button {
+    background-color: #5190ee;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: .5rem;
+}
+
+.button-cta {
+    @extend .button;
+}
+
+.button__generic {
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: .5rem;
+}
+
+.button__extended {
+    @extend .button__generic;
+    background-color: #f88644;
+}
+
+.button-cta__extended {
+    @extend .button__generic;
+    background-color: #73ec79;
+}

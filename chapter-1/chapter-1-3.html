@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH1 p3 > tuto-scss</title>
+    <link rel="stylesheet" href="../assets/css/app.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+</head>
+<body>
+    <div class="tuto-container">
+        <div>
+            <ul class="tuto-pagination">
+                <a href="/"><li>Accueil</li></a>
+                <a href="/chapter-1/index-chapter-1.html"><li>Chapitre 1</li></a>
+            </ul>
+            <h1>Présentation SASS</h1>
+            <div>
+                SASS est un pré-processeur qui intègre tout un tas de fonctionnalités qui vont permettrent d'écrire du CSS de manière plus organisée et plus propre.
+            </div>
+            <div>
+                <h2>Sommaire</h2>
+                <ul>
+                    <li><a href="./chapter-1-1.html">Séparer en plusieurs feuilles de styles</a></li>
+                    <li><a href="./chapter-1-2.html">Imbrication des propriétés: Nested Rules</a></li>
+                    <li><a href="./chapter-1-3.html">Héritages</a></li>
+                    <li><a href="./chapter-1-4.html">Les Variables</a></li>
+                    <li><a href="./chapter-1-exo.html">Exercice</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Héritages</h2>
+                <h3>Rendu visuel</h3>
+                <div>
+                    <button class="button">Bouton</button>
+                    <button class="button-cta">Call to Action</button>
+                </div>
+            </div>
+            <div>
+                <h3>CSS</h3>
+                <pre>
+                    <code>
+                        .button {
+                            background-color: #5190ee;
+                            border-radius: 5px;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                            padding: .5rem;
+                        }
+                        
+                        .button-cta {
+                            background-color: #5190ee;
+                            border-radius: 5px;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                            padding: .5rem;
+                        }
+                    </code>
+                </pre>
+                
+                <h3>SCSS</h3>
+                <pre>
+                    <code>
+                        .button {
+                            background-color: #5190ee;
+                            border-radius: 5px;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                            padding: .5rem;
+                        }
+                        
+                        .button-cta {
+                            @extend .button;
+                        }
+                    </code>
+                </pre>
+                
+                <div>
+                    Notre bouton <code>.button-cta</code> possèdent les mêmes propriétés que <code>.button</code>. En <code>SCSS</code>, vous pouvez étendre les propriétés d'une classe à une autre grâce à la règle <code>@extend</code>.
+                </div>
+                <br>
+                <div>
+                    L'exemple donné est particulièrement sans intérêt. L'avantage de <code>@extend</code> une classe est de la rendre la plus générique possible pour ensuite surcharger les propriétés qui nous intéressent.
+                </div>
+                
+                <div>
+                    <h3>Rendu visuel</h3>
+                    <div>
+                        <button class="button__generic">Generic</button>
+                        <button class="button__extended">Extended</button>
+                        <button class="button-cta__extended">CTA Extended</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>SCSS</h3>
+                    <pre>
+                        <code>
+                            .button__generic {
+                                border-radius: 5px;
+                                border: none;
+                                cursor: pointer;
+                                padding: .5rem;
+                            }
+                            
+                            .button__extended {
+                                @extend .button__generic;
+                                background-color: #f88644;
+                            }
+                            
+                            .button-cta__extended {
+                                @extend .button__generic;
+                                background-color: #73ec79;
+                            }
+                        </code>
+                    </pre>
+
+                    <div>
+                        Cela nous permet d'attribuer une couleur différente à chaque boutons sans avoir à redéfinir les propriétés <code>border-radius, border, cursor, padding</code>.
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>SCSS</h3>
+                    <pre>
+                        <code>
+                            %button {
+                                border-radius: 5px;
+                                border: none;
+                                cursor: pointer;
+                                padding: .5rem;
+                            }
+                            
+                            .button__extended {
+                                @extend %button;
+                                background-color: #f88644;
+                            }
+                            
+                            .button-cta__extended {
+                                @extend %button;
+                                background-color: #73ec79;
+                            }
+                        </code>
+                    </pre>
+
+                    <div>
+                        En remplaçant la classe <code>.button-generic</code> par <code>%button</code>, vous signalez au compilateur Gulp de ne pas ajouter celle-ci dans votre <code>CSS</code> final. Seules les classes qui étendent de cette dernière se verront attribués les propriétés définies.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/app.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

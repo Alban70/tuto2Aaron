@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH1 p2 > tuto-scss</title>
+    <link rel="stylesheet" href="../assets/css/app.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+</head>
+<body>
+    <div class="tuto-container">
+        <div>
+            <ul class="tuto-pagination">
+                <a href="/"><li>Accueil</li></a>
+                <a href="/chapter-1/index-chapter-1.html"><li>Chapitre 1</li></a>
+            </ul>
+            <h1>Présentation SASS</h1>
+            <div>
+                SASS est un pré-processeur qui intègre tout un tas de fonctionnalités qui vont permettrent d'écrire du CSS de manière plus organisée et plus propre.
+            </div>
+            <div>
+                <h2>Sommaire</h2>
+                <ul>
+                    <li><a href="./chapter-1-1.html">Séparer en plusieurs feuilles de styles</a></li>
+                    <li><a href="./chapter-1-2.html">Imbrication des propriétés: Nested Rules</a></li>
+                    <li><a href="./chapter-1-3.html">Héritages</a></li>
+                    <li><a href="./chapter-1-4.html">Les Variables</a></li>
+                    <li><a href="./chapter-1-exo.html">Exercice</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h2>Imbrication des propriétés: Nested Rules</h2>
+            <h3>Rendu visuel</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>th</th>
+                        <th>th</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>td</td>
+                        <td>td</td>
+                    </tr>
+                    <tr>
+                        <td>td</td>
+                        <td>td</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <h3>CSS</h3>
+                <pre>
+                    <code class="css">
+                        table {
+                            width: 100%;
+                        }
+                        
+                        table th {
+                            background-color: #ccc;
+                            color: #fff;
+                        }
+                        
+                        table td {
+                            border: solid 1px #0044ff;
+                            color: #ff0000;
+                        }
+                    </code>
+                </pre>
+                
+                <h3>SCSS</h3>
+                <pre>
+                    <code class="css">
+                        table {
+                            width: 100%;
+                            
+                            th {
+                                color: #FFF;
+                                background-color: #CCC;
+                            }
+                            
+                            td {
+                                border: solid 1px #0044ff;
+                                color: #ff0000;
+                            }
+                        }
+                    </code>
+                </pre>
+                
+                <div>
+                    Pour éviter de répéter plusieurs fois la propriété <code>table</code>, il est possible en <code>SCSS</code> d'imbriquer les propriétés les unes à l'intérieur des autres. Il est conseillé de ne conserver au maximum que deux niveaux d'imbrication afin de conserver un code lisible.
+                </div>
+            </div>
+            <div>
+                <h3>Rendu visuel</h3>
+                <button class="button">Hover</button>
+            </div>
+            <div>
+                <h3>CSS</h3>
+                <pre>
+                    <code class="css">
+                        .button {
+                            background-color: #5190ee;
+                            border-radius: 5px;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                            padding: .5rem;
+                        }
+                        
+                        .button:hover {
+                            background-color: #204d8f;
+                        }
+                    </code>
+                </pre>
+                
+                <h3>SCSS</h3>
+                <pre>
+                    <code class="css">
+                        .button {
+                            background-color: #5190ee;
+                            border-radius: 5px;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                            padding: .5rem;
+                            &:hover {
+                                background-color: #204d8f;
+                            }
+                        }
+                    </code>
+                </pre>
+
+                <div>
+                    Même principe pour modifier le comportement d'une pseudo-classe grâce au sélecteur <code>&</code> qui doit se lire de cette manière: De classe <code>.button</code> ET <code>:hover</code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/app.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

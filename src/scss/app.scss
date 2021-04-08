@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import './partials/tuto'; // Uniquement pour la mise en page du tuto
+
+html {
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(250, 250, 250);
+}
+
+body {
+    margin-bottom: 3rem;
+}
+
+@import './chapters/ch1-p1';
+@import './chapters/ch1-p2';
+@import './chapters/ch1-p3';
+@import './chapters/ch1-p4';

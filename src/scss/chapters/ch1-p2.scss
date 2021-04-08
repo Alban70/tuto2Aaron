@@ -1,0 +1,26 @@
+// Chapitre 1 - Page 2
+table {
+    width: 100%;
+    
+    th {
+        background-color: #ccc;
+        color: #fff;
+    }
+    
+    td {
+        border: solid 1px #0044ff;
+        color: #ff0000;
+    }
+}
+
+.button {
+    background-color: #5190ee;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: .5rem;
+    &:hover {
+        background-color: #204d8f;
+    }
+}

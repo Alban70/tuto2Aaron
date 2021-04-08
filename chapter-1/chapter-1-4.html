@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH1 p4 > tuto-scss</title>
+    <link rel="stylesheet" href="../assets/css/app.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+</head>
+<body>
+    <div class="tuto-container">
+        <div>
+            <ul class="tuto-pagination">
+                <a href="/"><li>Accueil</li></a>
+                <a href="/chapter-1/index-chapter-1.html"><li>Chapitre 1</li></a>
+            </ul>
+            <h1>Présentation SASS</h1>
+            <div>
+                SASS est un pré-processeur qui intègre tout un tas de fonctionnalités qui vont permettrent d'écrire du CSS de manière plus organisée et plus propre.
+            </div>
+            <div>
+                <h2>Sommaire</h2>
+                <ul>
+                    <li><a href="./chapter-1-1.html">Séparer en plusieurs feuilles de styles</a></li>
+                    <li><a href="./chapter-1-2.html">Imbrication des propriétés: Nested Rules</a></li>
+                    <li><a href="./chapter-1-3.html">Héritages</a></li>
+                    <li><a href="./chapter-1-4.html">Les Variables</a></li>
+                    <li><a href="./chapter-1-exo.html">Exercice</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Les Variables</h2>
+                <h3>Rendu visuel</h3>
+                <div>
+                    <button class="button-var">Bouton</button>
+                </div>
+            </div>
+            <div>
+                <h3>CSS</h3>
+                <pre>
+                    <code>
+                        .button-var {
+                            background-color: #5190ee;
+                            padding: 20px;
+                            border: none;
+                            border-radius: 5px;
+                            color: white;
+                            cursor: pointer;
+                        }
+
+                        .button-var:hover {
+                            background-color: #3e5e8f;
+                        }
+                        
+                        @media only screen and (max-width: 768px) {
+                            .button-var {
+                                width: 100%;
+                            }
+                        }
+                    </code>
+                </pre>
+                
+                <h3>SCSS</h3>
+                <pre>
+                    <code>
+                        $color-primary: #5190ee;
+                        $padding: 10px;
+                        $mobile-break: 768px;
+                        $mobile-break: 900px !default; // Prend la valeur 768px sauf si une variable du même nom existe déjà
+                        $mobile: "only screen and (max-width: #{ $mobile-break })";
+                        
+                        .button-var {
+                            background-color: $color-primary;
+                            padding: $padding + 10px;
+                            border: none;
+                            border-radius: 5px;
+                            color: white;
+                            cursor: pointer;
+                        
+                            &:hover {
+                                background-color: darken($color-primary, 20);
+                                // background-color: lighten($color-primary, 20);
+                                // background-color: rgba($color-primary, .5);
+                            }
+                            
+                            @media #{ $mobile } {
+                                width: 100%;
+                            }
+                        }
+                    </code>
+                </pre>
+
+                <div>
+                    Les variables en <code>SCSS</code> se déclarent avec le sélecteur <code>$</code>. Elles peuvent être de tous types, à vous de les utiliser dans le bon contexte. Si une variable doit être intégré dans une chaîne de caractères, il faudra l'interpoler de cette manière <code>#{ $variable }</code>.
+                </div>
+                <br>
+                <div>
+                    Le drapeau <code>!default</code> permet d'assigner une valeur par défaut à une variable si elle n'existe pas déjà ailleurs. Peu importe l'ordre de priorité classique en <code>CSS</code>, c'est à dire que la dernière propriété prend habituellement le dessus.
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/app.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

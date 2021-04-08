@@ -1,0 +1,48 @@
+$color-primary: #5190ee;
+
+.tuto-button {
+    background-color: $color-primary;
+    padding: .5rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        background-color: darken($color-primary, 20);
+        // background-color: lighten($color-primary, 20);
+        // background-color: rgba($color-primary, .5);
+    }
+
+    &:not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    &.disabled {
+        background-color: #ccc;
+        cursor: unset;
+        color: #6b6b6b;
+    }
+}
+
+.tuto-container {
+    max-width: 65vw;
+    margin: auto;
+}
+
+.tuto-pagination {
+    list-style: none;
+    padding-left: unset;
+    li {
+        display: inline;
+        margin-right: .5rem;
+    }
+}
+
+code {
+    color: #ff2f2f;
+    background-color: rgb(230, 230, 230);
+    padding: 3px 5px;
+    border-radius: 5px;
+}
